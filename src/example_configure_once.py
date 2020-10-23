@@ -1,9 +1,9 @@
 #
-#	Author:			Sebastien Parent-Charette (support@robotshop.com)
-#	Version:		1.0.0
-#	Licence:		LGPL-3.0 (GNU Lesser General Public License version 3)
-#	
-#	Desscription:	Example of all the possible configurations for a LSS.
+#   Author:         Sebastien Parent-Charette (support@robotshop.com)
+#   Version:        1.0.0
+#   Licence:        LGPL-3.0 (GNU Lesser General Public License version 3)
+#   
+#   Desscription:   Example of all the possible configurations for a LSS.
 #
 
 # Import required liraries
@@ -15,15 +15,15 @@ import lss
 import lss_const as lssc
 
 # Constants
-#CST_LSS_Port = "/dev/ttyUSB0"		# For Linux/Unix platforms
-CST_LSS_Port = "COM230"				# For windows platforms
+CST_LSS_Port = "/dev/ttyUSB0"      # For Linux/Unix platforms
+#CST_LSS_Port = "COM230"             # For windows platforms
 CST_LSS_Baud = lssc.LSS_DefaultBaud
 
 # Create and open a serial port
 lss.initBus(CST_LSS_Port, CST_LSS_Baud)
 
 # Create an LSS object
-myLSS = lss.LSS(0)
+myLSS = lss.LSS(1)
 
 # Uncomment any configurations that you wish to activate
 # You can see above each configuration a link to its description in the Lynxmotion wiki
@@ -84,12 +84,12 @@ myLSS = lss.LSS(0)
 
 # https://www.robotshop.com/info/wiki/lynxmotion/view/lynxmotion-smart-servo/lss-communication-protocol/#HA6.ConfigureLEDBlinking28CLB29
 # Options are an arithmetic addition of the following values:
-# Limp	1
-# Holding	2
-# Accelerating	4
-# Decelerating	8
-# Free	16
-# Travelling	32
+# Limp  1
+# Holding   2
+# Accelerating  4
+# Decelerating  8
+# Free  16
+# Travelling    32
 # Therefore, 0 = no blinking and 63 = always blinking
 ###myLSS.setBlinkingLED(0)
 
@@ -100,11 +100,11 @@ myLSS.reset()
 time.sleep(2)
 
 while 1:
-	# Loop through each of the 8 LED color (black = 0, red = 1, ..., white = 7)
-	for i in range (0, 7):
-		# Set the color (session) of the LSS
-		myLSS.setColorLED(i)
-		# Wait 1 second per color change
-		time.sleep(1)
+    # Loop through each of the 8 LED color (black = 0, red = 1, ..., white = 7)
+    for i in range (0, 7):
+        # Set the color (session) of the LSS
+        myLSS.setColorLED(i)
+        # Wait 1 second per color change
+        time.sleep(1)
 
 ### EOF #######################################################################
